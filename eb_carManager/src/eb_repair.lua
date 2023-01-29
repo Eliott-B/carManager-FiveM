@@ -4,25 +4,22 @@ RegisterCommand('rv', function(source)
     local playerPed = PlayerPedId()
     local pos = GetEntityCoords(playerPed)
 
-    if (DoesEntityExist(playerPed) and not IsEntityDead(playerPed)) then
+    if (IsPedSittingInAnyVehicle(playerPed)) then 
+        local vehicle = GetVehiclePedIsIn(playerPed, false)
 
-        if (IsPedSittingInAnyVehicle(playerPed)) then 
-            local vehicle = GetVehiclePedIsIn(playerPed, false)
-
-            if (GetPedInVehicleSeat( vehicle, -1) == playerPed) then 
-                SetEntityAsMissionEntity(vehicle, true, true )
-                SetVehicleFixed(vehicle)
-                if (GetVehicleEngineHealth(vehicle) <= -4000) then
-                    SetVehicleEngineHealth(vehicle, 1000)
-                end
-                SetVehicleDirtLevel(vehicle, 0)
-                Notify('~y~Sucess!')
-            else 
-                Notify('~r~~h~ERROR :~h~ you are not the driver !')
-            end 
-        else
-            Notify('~r~~h~ERROR :~h~ you are not in a vehicule !')
+        if (GetPedInVehicleSeat( vehicle, -1) == playerPed) then 
+            SetEntityAsMissionEntity(vehicle, true, true )
+            SetVehicleFixed(vehicle)
+            if (GetVehicleEngineHealth(vehicle) <= -4000) then
+                SetVehicleEngineHealth(vehicle, 1000)
+            end
+            SetVehicleDirtLevel(vehicle, 0)
+            Notify('~y~Sucess!')
+        else 
+            Notify('~r~~h~ERROR :~h~ you are not the driver !')
         end 
+    else
+        Notify('~r~~h~ERROR :~h~ you are not in a vehicule !')
     end
 end, false)
 
