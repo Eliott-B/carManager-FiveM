@@ -12,18 +12,18 @@ RegisterCommand('dv', function(source)
             if (GetPedInVehicleSeat( vehicle, -1) == playerPed) then 
                 SetEntityAsMissionEntity(vehicle ,true ,true )
                 DeleteVehicle(vehicle)
-                Notify('~b~Sucess')
+                Notify('~y~Sucess!')
             else 
-                Notify('~r~ERROR : you are not the driver !')
+                Notify('~r~~h~ERROR :~h~ you are not the driver !')
             end 
         else
             local vehicle = GetClosestVehicle(GetEntityCoords(playerPed), 15.0, 0, 70)
             if (DoesEntityExist(vehicle)) then 
                 SetEntityAsMissionEntity(vehicle ,true ,true )
                 DeleteVehicle(vehicle)
-                Notify('~b~Sucess')
+                Notify('~y~Sucess!')
             else 
-                Notify("~r~ERROR : you are not in a vehicule or near a vehiucle !")
+                Notify('~r~~h~ERROR :~h~ you are not in a vehicule or near a vehiucle !')
             end 
         end 
     end

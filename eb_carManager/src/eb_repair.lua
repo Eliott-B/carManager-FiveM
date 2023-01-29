@@ -16,12 +16,12 @@ RegisterCommand('rv', function(source)
                     SetVehicleEngineHealth(vehicle, 1000)
                 end
                 SetVehicleDirtLevel(vehicle, 0)
-                Notify('~b~Sucess')
+                Notify('~y~Sucess!')
             else 
-                Notify('~r~ERROR : you are not the driver !')
+                Notify('~r~~h~ERROR :~h~ you are not the driver !')
             end 
         else
-            Notify("~r~ERROR : you are not in a vehicule !")
+            Notify('~r~~h~ERROR :~h~ you are not in a vehicule !')
         end 
     end
 end, false)
