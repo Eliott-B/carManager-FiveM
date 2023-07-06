@@ -26,7 +26,7 @@ RegisterCommand('sv', function(source, args)
     SetEntityAsNoLongerNeeded(vehicle)
 
     SetModelAsNoLongerNeeded(args[1])
-    Notify('~y~Your ' .. args[1] .. ' appear !')
+    Notify('~y~Your ' .. string.upper(args[1]) .. ' appear !')
 end, false)
 
 
